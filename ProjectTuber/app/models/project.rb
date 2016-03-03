@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
-  belongs_to :user
 
-  validates :user_id, presence: true
-  validates :title, length: { minimum: 10 }, presence: true
+  validates :title, length: { minimum: 3, maximum: 30 }, presence: true
+  validates :description, length: { minimum: 10, maximum: 500 }, presence: true
+  validates :link_to_source, length: { maximum: 1000 }, presence: true #TODO url validation
 end

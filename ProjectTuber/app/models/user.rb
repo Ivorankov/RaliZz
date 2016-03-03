@@ -1,11 +1,7 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :rememberable, :validatable
 
-  has_many :projects
-
-  validates :username,
-            presence: true,
-            uniqueness: {case_sensitive: false},
-            format: {with: /\w+/}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}, format: {with: /\w+/}
+  validates :first_name, length: { minimum: 3, maximum: 25 }, presence: true
+  validates :last_name, length: { minimum: 3, maximum: 25 }, presence: true
+  validates :email, length: { minimum: 3, maximum: 30 }, presence: true #TODO mail validation
 end

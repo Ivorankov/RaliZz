@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.create([{username: 'John'}])
+projects = Project.create([{title: 'MyFirstProject'}])
