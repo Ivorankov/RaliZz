@@ -5,10 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 </head>
 <body>
-Test
-<%= yield %>
+<nav>
+  <div class="nav-wrapper red darken-4">
+    <a href="#" class="brand-logo right">Logo</a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="#">Home</a></li>
+      <li><a href="/project/index">Explore</a></li>
+      <li><a href="/project/add">Create</a></li>
+      <li><a href="#">Manage</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <%= yield %>
+</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </body>
 </html>

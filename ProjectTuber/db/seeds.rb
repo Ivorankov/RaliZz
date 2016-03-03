@@ -6,5 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = User.create([{username: 'John'}])
-projects = Project.create([{title: 'MyFirstProject'}])
+users = User.create(:username => 'Rubin',
+                    :first_name => 'Rob',
+                    :last_name => 'Train',
+                    :email => 'rob@mail.ml')
