@@ -21,7 +21,7 @@
 </nav>
 <div class="container">
   <% flash.each do |name, msg| %>
-      <%if name == 'alert'%>
+      <%if name === 'alert'%>
           <%= content_tag :div, msg, class: "card red darken-4 white-text" %>
       <%else%>
           <%= content_tag :div, msg, class: "card green darken-4 white-text" %>
