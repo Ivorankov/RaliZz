@@ -15,6 +15,8 @@ class ProjectController < ApplicationController
       when :get
 
       when :post
+        post = Image.save( params[:image])
+
         title = params[:title]
         description = params[:description]
         link_to_source = params[:link_to_source]

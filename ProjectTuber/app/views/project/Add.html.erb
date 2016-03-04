@@ -1,6 +1,6 @@
 <h1>Add, Add, Add... ^_^</h1>
 <div class="row small-input">
-  <form class="col s12" method="post">
+  <%= form_for(:image, :url => {:action => 'add'}, :html => {:multipart => true }) do |f| %>
       <div class="row">
         <div class="input-field col s12">
           <input id="title" name="title" type="text" required="required" class="validate">
@@ -19,6 +19,13 @@
         <label for="link">Link your repo</label>
       </div>
     </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="file" type="file" name="image[image]" class="red darken-4 white-text" formenctype="multipart/form-data" multiple>
+      </div>
+    </div>
     <input class="btn red darken-4" type="submit" value="Add:)"/>
-  </form>
+  <% end %>
 </div>
+
+<h1>File Upload</h1>
