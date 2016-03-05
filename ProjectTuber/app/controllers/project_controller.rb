@@ -8,6 +8,7 @@ class ProjectController < ApplicationController
 
   def index
     @projects = Project.paginate(:page => params[:page])
+    @images = Image.all
   end
 
   def add #TODO Define global constants for these
@@ -15,7 +16,7 @@ class ProjectController < ApplicationController
       when :get
 
       when :post
-        post = Image.save( params[:image])
+        save(params[:image], params[:title])
 
         title = params[:title]
         description = params[:description]
@@ -49,5 +50,16 @@ class ProjectController < ApplicationController
   def validate_length(string_variable, min, max)
     length = string_variable.length
     is_valid_length =  length > min && length < max
+  end
+  def save(upload, project_name)
+    name =  upload['image'].original_filename
+    directory = "public/images/projects/" + project_name
+    # create the file path
+    FileUtils::mkdir_p directory
+    path = File.join(directory, name)
+    # write the file
+    File.open(path, "wb") { |f| f.write(upload['image'].read) }
+
+    Image.create(:name=>name, :file_path => path)
   end
 end

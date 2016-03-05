@@ -1,11 +1,6 @@
 class Image < ActiveRecord::Base
-  def self.save(upload)
-    name =  upload['image'].original_filename
-    directory = "public/images/projects"
-    # create the file path
-    path = File.join(directory, name)
-    # write the file
-    File.open(path, "wb") { |f| f.write(upload['image'].read) }
-  end
+
+  validates :name, length: { maximum: 200 }, presence: true
+  validates :file_path, length: { maximum: 500 }, presence: true
 
 end
