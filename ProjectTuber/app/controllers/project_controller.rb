@@ -59,7 +59,7 @@ class ProjectController < ApplicationController
     path = File.join(directory, name)
     # write the file
     File.open(path, "wb") { |f| f.write(upload['image'].read) }
-
+    path.slice!(0, 6)
     Image.create(:name=>name, :file_path => path)
   end
 end
