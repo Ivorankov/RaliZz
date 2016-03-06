@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160304152344) do
   create_table "images", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "file_path",  limit: 255
+    t.integer  "project_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -24,17 +25,19 @@ ActiveRecord::Schema.define(version: 20160304152344) do
     t.string   "title",          limit: 255
     t.string   "description",    limit: 255
     t.string   "link_to_source", limit: 255
+    t.string   "link_to_video",  limit: 255
+    t.integer  "user_id",        limit: 4
+    t.integer  "images_id",      limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",   limit: 255
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.string   "email",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "username",    limit: 255
+    t.string   "ip",          limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "projects_id", limit: 4
   end
 
 end

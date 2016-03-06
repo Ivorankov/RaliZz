@@ -1,9 +1,9 @@
 <% if @projects %>
     <% @projects.each do |project| %>
-        <div class="row center-align">
-          <div class="col s12">
-            <h2 class="red-text">
-              <%= project.title %> <a class="repo_link" href="<%= project.link_to_source %>">&ltCOde&gt</a>
+        <div class="row">
+          <div class="col s12 center-align">
+            <h2>
+              <%= project.title %>
             </h2>
           </div>
           <div class="col s12">
@@ -11,24 +11,24 @@
               "<%= project.description %>"
             </strong>
           </div>
+          <div class="col s6">
+            <a class="repo_link" href="<%= project.link_to_source %>">&ltCOde&gt</a>
+          </div>
           <% if project.images.length != 0 %>
-              <div class="col s12 image-holder">
+              <div class="col s12">
                 <% project.images.each do |image| %>
-                    <div class="col s12">
+                    <div class="col s4">
                       <img class="img-thumbnail responsive-img" src="<%= image.file_path %>"/>
                     </div>
                 <% end %>
               </div>
           <% end %>
-          <% if project.link_to_video%>
-              <div class="col s12">
-                <div class="video-container">
-                  <iframe width="420" height="315" src="<%= project.link_to_video %>" frameborder="0" allowfullscreen>
-                  </iframe>
-                </div>
-              </div>
-          <%end%>
         </div>
+        <%= form_for(:project, :url => {:action => 'manage'}) do |f| %>
+            <input type="text" value="<%= project.id%>" name="id" />
+
+            <input type="submit" value="Del" class="red darken-4 white-text btn-floating"/>
+            <%end%>
         <hr/>
     <% end %>
     <%= will_paginate @projects %>

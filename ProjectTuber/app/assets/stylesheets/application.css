@@ -21,8 +21,15 @@
 }
 .repo_link:hover{
     color: red;
-    font-size: 20px;
 }
 .small-input{
     width:400px;
+}
+.image-holder{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.media-box{
+    max-width: 800px;
+    max-height: 800px;
 }

@@ -11,11 +11,18 @@
 <nav>
   <div class="nav-wrapper red darken-4">
     <a href="/home/index" class="brand-logo right"><img width="75" height="75" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/100px-Ruby_logo.svg.png" alt="logo" /></a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/home/index">Home</a></li>
       <li><a href="/project/index">Explore</a></li>
       <li><a href="/project/add">Create</a></li>
-      <li><a href="#">Manage</a></li>
+      <li><a href="/project/manage">Manage</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/home/index">Home</a></li>
+      <li><a href="/project/index">Explore</a></li>
+      <li><a href="/project/add">Create</a></li>
+      <li><a href="/project/manage">Manage</a></li>
     </ul>
   </div>
 </nav>
@@ -29,7 +36,9 @@
   <% end %>
   <%= yield %>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script>
+  $(".button-collapse").sideNav();
+</script>
 </body>
 </html>

@@ -1,31 +1,36 @@
 <h1>Add, Add, Add... ^_^</h1>
 <div class="row small-input">
-  <%= form_for(:image, :url => {:action => 'add'}, :html => {:multipart => true }) do |f| %>
+  <%= form_for(:image, :url => {:action => 'add'}, :html => {:multipart => true}) do |f| %>
       <div class="row">
         <div class="input-field col s12">
           <input id="title" name="title" type="text" required="required" class="validate">
-          <label for="title">Title</label>
+          <label for="title">Title(min 3 max 30)</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input id="description" name="description" type="text" required="required" class="validate">
-          <label for="description">Description</label>
+          <label for="description">Description(min 10 max 500)</label>
         </div>
       </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="link" type="text" name="link_to_source" required="required" class="validate">
-        <label for="link">Link your repo</label>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="link" type="text" name="link_to_source" required="required" class="validate">
+          <label for="link">Link your repo</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="file" type="file" name="image[image]" class="red darken-4 white-text" formenctype="multipart/form-data" multiple>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="video" type="text" name="link_to_video" required="required" class="validate">
+          <label for="video">Link your video</label>
+        </div>
       </div>
-    </div>
-    <input class="btn red darken-4" type="submit" value="Add:)"/>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="file" type="file" name="image[image]" class="red darken-4 white-text" formenctype="multipart/form-data" multiple>
+        </div>
+      </div>
+      <input class="btn red darken-4" type="submit" value="Add:)"/>
   <% end %>
 </div>
 
-<h1>File Upload</h1>
